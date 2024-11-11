@@ -100,3 +100,144 @@
 
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangun Ruang Segitiga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color:whitesmoke;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bangun Ruang Segitiga</h1>
+        
+        <h2>Penjelasan :</h2>
+        <p>Segitiga sama sisi adalah segitiga yang memiliki tiga sisi dengan panjang yang sama. Dalam segitiga sama sisi, semua sudutnya juga sama, yaitu 60°.</p>
+        
+        <h2>Bagaimana Cara Hitungnya?</h2>
+        <p>Untuk segitiga sama sisi, rumus yang digunakan adalah:</p>
+        <ul>
+            <li><strong>Luas:</strong> <code>Luas = (sisi² √3) / 4</code></li>
+            <li><strong>Keliling:</strong> <code>Keliling = 3 × sisi</code></li>
+        </ul>
+        
+        <h2>Masukkan Panjang Sisi</h2>
+        <div class="form-group">
+            <label for="sisi">Panjang Sisi (cm):</label>
+            <input type="number" id="sisi" placeholder="Masukkan panjang sisi segitiga" required>
+        </div>
+
+        <button onclick="hitung()">Hitung Luas dan Keliling</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <div class="footer">
+        <p>Latihan Bangun Ruang - Segitiga Sama Sisi (2024)</p>
+    </div>
+
+    <script>
+        function hitung() {
+            // Mendapatkan nilai sisi dari input
+            var sisi = parseFloat(document.getElementById('sisi').value);
+
+            // Validasi input
+            if (isNaN(sisi) || sisi <= 0) {
+                document.getElementById('result').innerHTML = 'Mohon masukkan panjang sisi yang valid.';
+                return;
+            }
+
+            // Menghitung luas segitiga sama sisi
+            var luas = (Math.pow(sisi, 2) * Math.sqrt(3)) / 4;
+
+            // Menghitung keliling segitiga sama sisi
+            var keliling = 3 * sisi;
+
+            // Menampilkan hasil
+            document.getElementById('result').innerHTML = 
+                'Luas Segitiga Sama Sisi: ' + luas.toFixed(2) + ' cm²<br>' +
+                'Keliling Segitiga Sama Sisi: ' + keliling.toFixed(2) + ' cm';
+        }
+    </script>
+
+</body>
+</html>

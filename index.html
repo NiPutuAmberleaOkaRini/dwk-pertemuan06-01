@@ -60,7 +60,7 @@
     <label>Nilai Lebar (Meter)</LABEL>
      <input type="text" name="txLEBAR" id="txLEBAR">
   </form>
-  <div id="txHASIL">Nilai Luas dan Keliling</div>
+  <div id="txHASIL_Persegi">Nilai Luas dan Keliling</div>
   
   </div>
   <div class="cardfooter">
@@ -84,8 +84,8 @@
    hsl += "Keliling = 2 X (Panjang+Lebar)<br>"
    hsl += "Keliling = 2 X (" +PJ+ " M +" +LB+ " M)<br>"
    hsl += "Keliling = 2 X " +PJLB+ "<br>"
-   hsl += "Keliling = "+KEL+" Meter"
-   document.getElementById("txHASIL").innerHTML=hsl
+   hsl += "Keliling = "+KEL+"M<sup>2</sup><br><br>"
+   document.getElementById("txHASIL_Persegi").innerHTML=hsl
   }
   </script>
 </body>
@@ -98,7 +98,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luas dan Keliling Ruang Bangun Segitiga</title>
+  <title>Luas dan Keliling Segitiga</title>
   <style>
     * {
       font-family: 'Times New Roman', Times, serif;
@@ -166,16 +166,16 @@
           <label>Nilai Sisi C (Meter)</label>
           <input type="text" id="txSISI_C" required />
         </form>
-        <div id="txHASIL">Nilai Luas dan Keliling</div>
+        <div id="txHASIL_Segitiga">Nilai Luas dan Keliling</div>
       </div>
       <div class="cardfooter">
-        <button type="button" onclick="Pesan()">Hitung Luas dan Keliling</button>
+        <button type="button" onclick="hitungSegitiga()">Hitung Luas dan Keliling</button>
       </div>
     </div>
   </div>
   
   <script>
-    function Pesan(){
+    function hitungSegitiga() {
       let alas = parseFloat(document.getElementById("txALAS").value);
       let tinggi = parseFloat(document.getElementById("txTINGGI").value);
       let sisiA = parseFloat(document.getElementById("txSISI_A").value);
@@ -184,20 +184,25 @@
 
       // Validasi input
       if (isNaN(alas) || isNaN(tinggi) || isNaN(sisiA) || isNaN(sisiB) || isNaN(sisiC) || alas <= 0 || tinggi <= 0 || sisiA <= 0 || sisiB <= 0 || sisiC <= 0) {
-        alert("Masukkan nilai yang valid.");
+        alert("Masukkan nilai yang valid dan lebih besar dari nol.");
         return;
       }
 
-      // Proses Hitung Luas 
+      // Proses Hitung Luas dan Keliling
       let luas = 0.5 * alas * tinggi;
       let keliling = sisiA + sisiB + sisiC;
-      let hsl = "Hitung Luas Segitiga<br>Luas = 0.5 * alas * tinggi</br>";
-      hsl += "Luas = 1/2 X Alas X Tinggi<br>";
-      hsl += "Luas = 1/2 X " + alas + " m X " + tinggi + " m<br>";
-      hsl += "Luas = " + luas.toFixed(2) + " m²<br><br>";
-      hsl += "Hitung Keliling Segitiga<br>";
-      hsl += "Keliling = Sisi A + Sisi B + Sisi C<br>";
-      hsl += "Keliling = " + sisiA + " m + " + sisiB + " m + " + sisiC + " m<br;
-      document.getElementById("txHASIL").innerHTML=hsl
-  }
+
+      let hasil = "Hitung Luas Segitiga<br>";
+      hasil += "Luas = 1/2 * Alas * Tinggi<br>";
+      hasil += "Luas = 1/2 X " + alas + " M X " + tinggi + " M<br>";
+      hasil += "Luas = " + luas.toFixed(2) + "M<sup>2</sup><br><br>";
+      hasil += "Hitung Keliling Segitiga<br>";
+      hasil += "Keliling = Sisi A + Sisi B + Sisi C<br>";
+      hasil += "Keliling = " + sisiA + " m + " + sisiB + " m + " + sisiC + " m<br>";
+      hasil += "Keliling = " + keliling.toFixed(2) + "M<sup>2</sup><br><br>";
+
+      document.getElementById("txHASIL_Segitiga").innerHTML = hasil;
+    }
   </script>
+</body>
+</html>
